@@ -1,0 +1,110 @@
+Reto 4 AD - API REST Recursos Turísticos
+
+Este proyecto es una aplicación SpringBoot que gestiona recursos turísticos a través de una API REST para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre recursos turísticos.
+
+Estructura del Proyecto
+
+El proyecto está organizado en los siguientes paquetes:
+
+com.example.demo.model: contiene la clase RecursoTurismo, donde se definen sus atributos
+com.example.demo.repository: contiene las interfaces del repositorio para acceder a la base de datos
+com.example.demo.controller: contiene el controlador que manejan las solicitudes HTTP
+
+Entidad: RecursoTurismo
+
+La clase RecursoTurismo representa un recurso turístico. Sus atributos son:
+
+- id: identificador único.
+- nombre: nombre del recurso turístico
+- descripcion: descripción del recurso turístico
+- ubicacion: provincia donde se encuentra el recurso turístico.
+- categoria: categoría a la que pertenece, puede ser hotel, museo, punto de interés o restaurante
+
+Repositorio: RecursoTurismoRepository
+
+La interfaz RecursoTurismoRepository extiende JpaRepository y proporciona métodos para acceder y manipular los datos de la entidad RecursoTurismo en la base de datos.
+
+Controlador: RecursoTurismoController
+
+El controlador RecursoTurismoController maneja las solicitudes HTTP relacionadas con los recursos turísticos. Proporciona los siguientes end-points:
+
+- `GET /recursos`: Obtiene todos los recursos turísticos.
+- `POST /recursos`: Crea un nuevo recurso turístico.
+- `GET /recursos/{id}`: Obtiene un recurso turístico por su ID.
+- `PUT /recursos/{id}`: Actualiza un recurso turístico existente.
+- `DELETE /recursos/{id}`: Elimina un recurso turístico por su ID.
+
+Ejemplos:
+
+
+GET /recursos
+
+[
+    {
+        "id": 1,
+        "nombre": "Playa del Carmen",
+        "descripcion": "Hermosa playa en Quintana Roo",
+        "ubicacion": "Quintana Roo, México",
+        "categoria": "Playas"
+    },
+    {
+        "id": 2,
+        "nombre": "Chichén Itzá",
+        "descripcion": "Zona arqueológica maya",
+        "ubicacion": "Yucatán, México",
+        "categoria": "Cultural"
+    }
+]
+
+---
+
+
+POST /recursos
+
+{
+    "nombre": "Tulum",
+    "descripcion": "Ruinas mayas frente al mar",
+    "ubicacion": "Quintana Roo, México",
+    "categoria": "Cultural"
+}
+
+{
+    "id": 3,
+    "nombre": "Tulum",
+    "descripcion": "Ruinas mayas frente al mar",
+    "ubicacion": "Quintana Roo, México",
+    "categoria": "Cultural"
+}
+
+---
+
+
+GET /recursos/1
+
+{
+    "id": 1,
+    "nombre": "Playa del Carmen",
+    "descripcion": "Hermosa playa en Quintana Roo",
+    "ubicacion": "Quintana Roo, México",
+    "categoria": "Playas"
+}
+
+---
+
+
+PUT /recursos/1
+
+{
+    "nombre": "Playa del Carmen Actualizada",
+    "descripcion": "Hermosa playa en Quintana Roo con nuevos servicios",
+    "ubicacion": "Quintana Roo, México",
+    "categoria": "Playas"
+}
+
+{
+    "id": 1,
+    "nombre": "Playa del Carmen Actualizada",
+    "descripcion": "Hermosa playa en Quintana Roo con nuevos servicios",
+    "ubicacion": "Quintana Roo, México",
+    "categoria": "Playas"
+}
