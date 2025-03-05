@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalle del Recurso</title>
+    <style>
+        body {
+            background-color: #222221;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #333333;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            color: #FFC107;
+            text-align: center;
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .card p strong {
+            color: #FFC107;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #DC3545;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2 th:text="${recurso.nombre}"></h2>
+    <p><strong>Descripción:</strong> <span th:text="${recurso.descripcion}"></span></p>
+    <p><strong>Ubicación:</strong> <span th:text="${recurso.ubicacion}"></span></p>
+    <p><strong>Categoría:</strong> <span th:text="${recurso.categoria}"></span></p>
+</div>
+<a href="/web/recursos" class="back-link">Volver al listado</a>
+</body>
+</html>

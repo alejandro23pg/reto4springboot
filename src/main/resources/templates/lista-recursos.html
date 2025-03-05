@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Recursos</title>
+    <style>
+        body {
+            background-color: #222221;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background-color: #333333;
+            color: #FFFFFF;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #555555;
+        }
+
+        tr:nth-child(even) {
+            background-color: #666666;
+        }
+
+        a {
+            color: #FFC107;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Guía Turística de España</h1>
+<table>
+    <thead>
+    <tr>
+        <th>NOMBRE</th>
+        <th>DESCRIPCIÓN</th>
+        <th>UBICACIÓN</th>
+        <th>CATEGORÍA</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recurso : ${recursos}">
+        <td><a th:href="@{/web/recursos/{id}(id=${recurso.id})}" th:text="${recurso.nombre}"></a></td>
+        <td th:text="${recurso.descripcion}"></td>
+        <td th:text="${recurso.ubicacion}"></td>
+        <td th:text="${recurso.categoria}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
