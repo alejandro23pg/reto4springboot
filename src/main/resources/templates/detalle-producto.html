@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Detalle del Recurso</title>
+    <title>Detalle del Producto</title>
     <style>
         body {
             background-color: #222221;
@@ -52,11 +52,12 @@
 </head>
 <body>
 <div class="card">
-    <h2 th:text="${recurso.nombre}"></h2>
-    <p><strong>Descripción:</strong> <span th:text="${recurso.descripcion}"></span></p>
-    <p><strong>Ubicación:</strong> <span th:text="${recurso.ubicacion}"></span></p>
-    <p><strong>Categoría:</strong> <span th:text="${recurso.categoria}"></span></p>
+    <h2 th:text="${producto.title}"></h2>
+    <p><strong>Precio:</strong> <span th:text="${producto.price}"></span></p>
+    <p><strong>Descripción:</strong> <span th:text="${producto.description}"></span></p>
+    <p><strong>Categoría:</strong> <span th:text="${producto.category}"></span></p>
+    <img th:src="${producto.image}" alt="Imagen del producto" style="max-width: 100%; height: auto; display: block; margin: 20px auto;">
 </div>
-<a href="/web/recursos" class="back-link">Volver al listado</a>
+<a href="/web/productos" class="back-link">Volver al listado</a>
 </body>
 </html>

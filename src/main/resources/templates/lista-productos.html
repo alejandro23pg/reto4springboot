@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Listado de Recursos</title>
+    <title>Listado de Productos</title>
     <style>
         body {
-            background-color: #222221;
-            color: #FFFFFF;
+            background-color: #FFFFFF;
+            color: #222221;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
         }
 
         h1 {
-            color: #FFFFFF;
+            color: #222221;
             text-align: center;
         }
 
@@ -34,11 +34,11 @@
         }
 
         tr:nth-child(odd) {
-            background-color: #555555;
+            background-color: #FFFFFF;
         }
 
         tr:nth-child(even) {
-            background-color: #666666;
+            background-color: #FFFFFF;
         }
 
         a {
@@ -52,22 +52,24 @@
     </style>
 </head>
 <body>
-<h1>Guía Turística de España</h1>
+<h1>Productos</h1>
 <table>
     <thead>
     <tr>
-        <th>NOMBRE</th>
-        <th>DESCRIPCIÓN</th>
-        <th>UBICACIÓN</th>
-        <th>CATEGORÍA</th>
+        <th>id</th>
+        <th>Título</th>
+        <th>Precio</th>
+        <th>Descripción</th>
+        <th>Categoria</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="recurso : ${recursos}">
-        <td><a th:href="@{/web/recursos/{id}(id=${recurso.id})}" th:text="${recurso.nombre}"></a></td>
-        <td th:text="${recurso.descripcion}"></td>
-        <td th:text="${recurso.ubicacion}"></td>
-        <td th:text="${recurso.categoria}"></td>
+    <tr th:each="producto : ${productos}">
+        <td th:text="${producto.id}"></td>
+        <td><a th:href="@{/web/productos/{id}(id=${producto.id})}" th:text="${producto.title}"></a></td>
+        <td th:text="${producto.price}"></td>
+        <td th:text="${producto.description}"></td>
+        <td th:text="${producto.categoria}"></td>
     </tr>
     </tbody>
 </table>
